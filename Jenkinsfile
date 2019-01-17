@@ -1,12 +1,12 @@
 #!groovy
-node('slave1') {
+node('slave1') 
+ gradle4 = tool 'gradle4'{
    stage ('Checkout'){
       checkout scm
       
    }
 
-   stage ('Build gradle'){
-      def gradleHome = tool 'gradle4'
+      stage ('Build gradle'){
       sh "${gradle4}/bin/gradle clean jar"
    }
 }
